@@ -9,9 +9,6 @@ github.com/cloudwego/base64x v0.1.5 h1:XPciSp1xaq2VCSt6lF0phncD4koWyULpl5bUxbfCy
 github.com/cloudwego/base64x v0.1.5/go.mod h1:0zlkT4Wn5C6NdauXdJRhSKRlJvmclQ1hhJgA0rcu/8w=
 github.com/cloudwego/iasm v0.2.0/go.mod h1:8rXZaNYT2n95jn+zTI1sDr+IgcD2GVs0nlbbQPiEFhY=
 github.com/cpuguy83/go-md2man/v2 v2.0.6/go.mod h1:oOW0eioCTA6cOiMLiUPZOpcVxMig6NIQQ7OS05n1F4g=
-github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
-github.com/danielgtaylor/huma/v2 v2.32.0 h1:ytU9ExG/axC434+soXxwNzv0uaxOb3cyCgjj8y3PmBE=
-github.com/danielgtaylor/huma/v2 v2.32.0/go.mod h1:9BxJwkeoPPDEJ2Bg4yPwL1mM1rYpAwCAWFKoo723spk=
 github.com/danielgtaylor/huma/v2 v2.32.1-0.20250509235652-c7ead6f3c67f h1:I+yFFj+NZkOAFK8aAHbzgIAqIV4WuXKHgcac2/TLnG8=
 github.com/danielgtaylor/huma/v2 v2.32.1-0.20250509235652-c7ead6f3c67f/go.mod h1:bHTNaru9dUPjE755rN6mtjbfdA9SeDiXrBISivyNeWE=
 github.com/danielgtaylor/mexpr v1.9.1 h1:nA9bsGRmNlJeVCPFgGf7WhrLuKag/+iWfOaJ03iKFPI=
