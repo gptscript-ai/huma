@@ -225,6 +225,30 @@ func (s *Schema) MarshalJSON() ([]byte, error) {
 	}, s.Extensions)
 }
 
+func (s *Schema) UnmarshalJSON(data []byte) error {
+	var internal internalSchema
+	if err := json.Unmarshal(data, &internal); err != nil {
+		return err
+	}
+
+	switch t := internal.Type.(type) {
+	case string:
+		internal.schema.Type = t
+	case []any:
+		if len(t) > 0 {
+			var ok bool
+			internal.schema.Type, ok = t[0].(string)
+			if !ok {
+				return fmt.Errorf("invalid type: %v", t[0])
+			}
+			internal.Nullable = len(t) > 1 && t[1] == "null"
+		}
+	}
+
+	*s = Schema(internal.schema)
+	return nil
+}
+
 // PrecomputeMessages tries to precompute as many validation error messages
 // as possible so that new strings aren't allocated during request validation.
 func (s *Schema) PrecomputeMessages() {
@@ -924,4 +948,11 @@ func schemaFromType(r Registry, t reflect.Type) *Schema {
 	}
 
 	return &s
+}
+
+type schema Schema
+
+type internalSchema struct {
+	Type   any
+	schema `json:",inline"`
 }
