@@ -225,6 +225,8 @@ func (s *Schema) MarshalJSON() ([]byte, error) {
 	}, s.Extensions)
 }
 
+// UnmarshalJSON unmarshals the schema from a JSON byte array.
+// This explicitly does not unmarshal extensions inline.
 func (s *Schema) UnmarshalJSON(data []byte) error {
 	var internal internalSchema
 	if err := json.Unmarshal(data, &internal); err != nil {
@@ -241,7 +243,17 @@ func (s *Schema) UnmarshalJSON(data []byte) error {
 			if !ok {
 				return fmt.Errorf("invalid type: %v", t[0])
 			}
-			internal.Nullable = len(t) > 1 && t[1] == "null"
+			if len(t) > 1 {
+				if t[0] == "null" {
+					internal.Nullable = true
+					internal.schema.Type, ok = t[1].(string)
+					if !ok {
+						return fmt.Errorf("invalid type: %v", t[1])
+					}
+				} else {
+					internal.Nullable = t[1] == "null"
+				}
+			}
 		}
 	}
 

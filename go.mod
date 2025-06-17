@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.24.1
 
 require (
-	github.com/danielgtaylor/huma/v2 v2.32.0
+	github.com/danielgtaylor/huma/v2 v2.32.1-0.20250509235652-c7ead6f3c67f
 	github.com/danielgtaylor/shorthand/v2 v2.2.0
 	github.com/evanphx/json-patch/v5 v5.9.11
 	github.com/fxamacker/cbor/v2 v2.8.0
